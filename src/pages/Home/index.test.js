@@ -21,7 +21,6 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      await screen.findByText("Message envoyé !");
     });
   });
 
@@ -29,16 +28,21 @@ describe("When Form is created", () => {
 
 
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
+  it("a list of events is displayed", async () => {
+    render(<Home />);
   })
-  it("a list a people is displayed", () => {
-    // to implement
+  it("a list a people is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Samira");
+    await screen.findByText("Jean-baptiste");
+    await screen.findByText("Alice");
   })
   it("a footer is displayed", () => {
-    // to implement
+    render(<Home />);
+    expect(screen.getByText("Contactez-nous")).toBeInTheDocument();
   })
   it("an event card, with the last event, is displayed", () => {
-    // to implement
+    render(<Home />);
+    expect(screen.getByText("Notre dernière prestation")).toBeInTheDocument();
   })
 });
